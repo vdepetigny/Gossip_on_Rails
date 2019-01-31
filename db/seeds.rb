@@ -10,6 +10,8 @@ require 'faker'
 User.destroy_all
 City.destroy_all
 Gossip.destroy_all
+Tag.destroy_all
+JoinTableTagGossip.destroy_all
 
 10.times do
  city = City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
@@ -22,3 +24,14 @@ end
 20.times do
  gossip = Gossip.create(title: Faker::Lorem.word, content: Faker::HarryPotter.quote, user: User.all.sample)
 end
+
+10.times do
+ tag = Tag.create(title: Faker::Ancient.hero)
+end
+
+10.times do
+ join_table_tag_gossip = JoinTableTagGossip.create(gossip: Gossip.all.sample, tag: Tag.all.sample)
+end
+
+
+
