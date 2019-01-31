@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_184835) do
+ActiveRecord::Schema.define(version: 2019_01_31_191841) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2019_01_31_184835) do
     t.integer "tag_id"
     t.index ["gossip_id"], name: "index_join_table_tag_gossips_on_gossip_id"
     t.index ["tag_id"], name: "index_join_table_tag_gossips_on_tag_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "recipient_id"
+    t.integer "sender_id"
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "tags", force: :cascade do |t|

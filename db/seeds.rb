@@ -12,6 +12,7 @@ City.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
 JoinTableTagGossip.destroy_all
+Message.destroy_all
 
 10.times do
  city = City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
@@ -33,5 +34,8 @@ end
  join_table_tag_gossip = JoinTableTagGossip.create(gossip: Gossip.all.sample, tag: Tag.all.sample)
 end
 
+5.times do
+ message = Message.create(content: Faker::FamousLastWords.last_words, recipient: User.all.sample, sender: User.all.sample)
+end
 
 
