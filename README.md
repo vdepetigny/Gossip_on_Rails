@@ -57,3 +57,4 @@ Notre application est composé de 6 modèles User, City, Gossip, Tag, Join_Table
 Viviane de Petigny  
 Bastien Hiel  
 Gregoria Ndongozi  
+Mélanie Nguon  
