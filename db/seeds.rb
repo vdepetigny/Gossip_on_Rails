@@ -9,10 +9,16 @@
 require 'faker'
 User.destroy_all
 City.destroy_all
+Gossip.destroy_all
 
 10.times do
  city = City.create(name: Faker::Address.city, zip_code: Faker::Address.zip_code)
 end
+
 10.times do
  user = User.create(first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, description: Faker::Friends.quote, email: Faker::Internet.email, age: Faker::Number.number(2), city: City.all.sample)
+end
+
+20.times do
+ gossip = Gossip.create(title: Faker::Lorem.word, content: Faker::HarryPotter.quote, user: User.all.sample)
 end
